@@ -1,1 +1,1 @@
-# atm_ooadj
+# ATM Simulator OOADJ project
