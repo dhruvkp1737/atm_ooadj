@@ -1,0 +1,28 @@
+package com.atm.service;
+
+import com.atm.dao.Transaction;
+import com.atm.dao.TransactionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * The TransactionService class provides business logic for an account
+ */
+@Service
+public class TransactionService {
+    @Autowired
+    TransactionRepository transactionRepository;
+
+    /**
+     * Function to save a transaction to the repository
+     * @param transaction
+     */
+    public void save(Transaction transaction) {
+        transactionRepository.save(transaction);
+    }
+
+    public Transaction getTransaction() {
+        Transaction t = transactionRepository.findTopByOrderByTransactionIdDesc();
+        return t;
+    }
+}
